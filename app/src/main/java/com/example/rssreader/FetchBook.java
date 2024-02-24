@@ -109,7 +109,7 @@ public class FetchBook extends AsyncTask<String, Void, String> {
             int i = 0;
             String title = null;
 //            String author = null;
-            Toast.makeText(context.getApplicationContext(), "jsonArray.length(): " + jsonArray.length() , Toast.LENGTH_SHORT).show();
+//            Toast.makeText(context.getApplicationContext(), "jsonArray.length(): " + jsonArray.length() , Toast.LENGTH_SHORT).show();
 
             while (i < jsonArray.length()){
                 JSONObject book = jsonArray.getJSONObject(i);
@@ -117,8 +117,9 @@ public class FetchBook extends AsyncTask<String, Void, String> {
 
                 try {
                     title = volumeInfo.getString("title");
+                    String selfLink = volumeInfo.optString("infoLink", "");
 //                    author = volumeInfo.getString("author");
-                    adapter.addTitle(title);
+                    adapter.addBook(new Book(title, selfLink));
 
                 }catch (Exception e){
                     e.printStackTrace();
@@ -137,6 +138,7 @@ public class FetchBook extends AsyncTask<String, Void, String> {
             e.printStackTrace();
         }
     }
+
 
 
 
