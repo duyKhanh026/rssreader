@@ -117,6 +117,7 @@ public class FetchBook extends AsyncTask<String, Void, String> {
 
                 try {
                     title = volumeInfo.getString("title");
+//                    String selfLink = book.getString("selfLink");
                     String selfLink = volumeInfo.optString("infoLink", "");
 //                    author = volumeInfo.getString("author");
                     adapter.addBook(new Book(title, selfLink));
