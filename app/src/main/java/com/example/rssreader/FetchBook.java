@@ -111,7 +111,7 @@ public class FetchBook extends AsyncTask<String, Void, String> {
 //            String author = null;
             Toast.makeText(context.getApplicationContext(), "jsonArray.length(): " + jsonArray.length() , Toast.LENGTH_SHORT).show();
 
-            while (i < jsonArray.length() || (/*author == null && */title == null) ){
+            while (i < jsonArray.length()){
                 JSONObject book = jsonArray.getJSONObject(i);
                 JSONObject volumeInfo = book.getJSONObject("volumeInfo");
 
